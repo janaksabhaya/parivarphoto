@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['image']) && isset($_P
     $croped_image = $_POST['image'];
     $name = $_POST['name'];
 
-    $baseImagePath = 'images/sultanpur-gam.png';
+    $baseImagePath = 'images/sabhaya_parivar_post.png';
 
     // Strip the data URL prefix if present
     if (preg_match('/^data:image\/(\w+);base64,/', $croped_image, $type)) {
@@ -15,25 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['image']) && isset($_P
         if (!in_array($type, ['jpg', 'jpeg', 'png', 'gif', 'bmp'])) {
             http_response_code(400);
             echo json_encode(['error' => 'Invalid image type']);
-            exit;
+            die;
         }
         $overlayImageData = base64_decode($croped_image);
         if ($overlayImageData === false) {
             http_response_code(400);
             echo json_encode(['error' => 'Base64 decode failed']);
-            exit;
+            die;
         }
     } else {
         http_response_code(400);
         echo json_encode(['error' => 'Did not match data URL with image data']);
-        exit;
+        die;
     }
 
     // Ensure the file path is valid and does not contain null bytes
     if (strpos($baseImagePath, "\0") !== false) {
         http_response_code(400);
         echo json_encode(['error' => 'Invalid base image path']);
-        exit;
+        die;
     }
 
     // Load the base image
@@ -41,14 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['image']) && isset($_P
     if ($baseImageContent === false) {
         http_response_code(400);
         echo json_encode(['error' => 'Failed to load base image']);
-        exit;
+        die;
     }
-
-    $baseImage = imagecreatefromstring($baseImageContent);
+    // print_r($baseImageContent);
+    $baseImage = @imagecreatefromstring($baseImageContent);
     if ($baseImage === false) {
         http_response_code(400);
         echo json_encode(['error' => 'Failed to create image from base image content']);
-        exit;
+        die;
     }
 
     // Create the overlay image from decoded base64 data
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['image']) && isset($_P
     if ($overlayImage === false) {
         http_response_code(400);
         echo json_encode(['error' => 'Failed to create image from overlay image data']);
-        exit;
+        die;
     }
 
     // Preserve transparency for base image
@@ -71,25 +71,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['image']) && isset($_P
     $overlayHeight = imagesy($overlayImage);
 
     // Define the position where you want to place the cropped image
-    $dst_x = 48; // Specific x position
-    $dst_y = 288; // Specific y position
+    $dst_x = 202; // Specific x position
+    $dst_y = 305; // Specific y position
+
+    // Define the size of the overlay image to fit the desired area
+    $newWidth = 191; // Adjust as needed
+    $newHeight = 190; // Adjust as needed
 
     // Create a new true color image with the same dimensions as the base image
     $finalImage = imagecreatetruecolor(imagesx($baseImage), imagesy($baseImage));
 
-    // Fill the specified position with the cropped image
-    imagecopy($finalImage, $overlayImage, $dst_x, $dst_y, 0, 0, $overlayWidth, $overlayHeight);
+    // Resize the overlay image to fit the desired area
+    $resizedOverlay = imagecreatetruecolor($newWidth, $newHeight);
+    imagecopyresampled($resizedOverlay, $overlayImage, 0, 0, 0, 0, $newWidth, $newHeight, $overlayWidth, $overlayHeight);
+
+    // Fill the specified position with the resized cropped image
+    imagecopy($finalImage, $resizedOverlay, $dst_x, $dst_y, 0, 0, $newWidth, $newHeight);
 
     // Overlay the base image onto the new image
     imagecopy($finalImage, $baseImage, 0, 0, 0, 0, imagesx($baseImage), imagesy($baseImage));
 
     // Add text to the final image
-    $textColor = imagecolorallocate($finalImage, 255, 255, 255); // White color
+    $textColor = imagecolorallocate($finalImage, 0, 0, 0); // Black color
     $font = 'Raleway.ttf'; // Path to the font file
     $text = $name; // Text to be added
-    $fontSize = 20; // Font size
-    $textX = 48; // Specific x position for the text
-    $textY = 680; // Specific y position for the text
+    $fontSize = 16; // Font size
+    $textX = 202; // Specific x position for the text
+    $textY = 527; // Specific y position for the text
     imagettftext($finalImage, $fontSize, 0, $textX, $textY, $textColor, $font, $text);
 
     $outputPath = 'final/' . uniqid() . '.png';
@@ -102,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['image']) && isset($_P
 
     imagedestroy($baseImage);
     imagedestroy($overlayImage);
+    imagedestroy($resizedOverlay);
     imagedestroy($finalImage);
 
     $response = [

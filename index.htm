@@ -7,16 +7,9 @@
 
     <meta name="name:title" content="">
     <meta name="name:description" content="સભાયા પરિવાર,સુરત">
-    <meta property="og:image" content="https://freefestivepost.com/makepost/images/banner-sultanpur-gam.png" />
 
     <meta charset="utf-8">
     <meta name="keywords" content="Teqheal solution">
-    <!--     <meta name="description" content="">
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta name="theme-color" content="#0e4ce3">
-    <meta property="og:url" content=""> -->
-
     <link rel="icon" type="image/x-icon" href="images/favicone.png">
     <link rel="stylesheet" href="css/nicepagea224.css?version=1ff958e7-35ff-4064-a17d-14ac55a5fe2a" media="screen">
     <link id="u-theme-google-font" rel="stylesheet"
@@ -26,9 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" /> -->
     <link href="css/cropper.css" rel="stylesheet" />
-    <!-- <script src="js/dropzone"></script> -->
     <script src="js/cropper.js"></script>
     <!-- croper end -->
 
@@ -426,10 +417,10 @@
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
             <div class="u-layout">
                 <div class="u-layout-row">
-                    <div class="u-align-center u-container-style u-image u-layout-cell u-size-30" data-image-width="1000" data-image-height="1500">
+                    <div class="u-align-center u-container-style u-image u-layout-cell u-size-30 " style="display:flex; align-items:center; justify-content:center; padding-top:25px;" data-image-width="1000" data-image-height="1500">
                         <!-- <div class="u-container-layout u-container-layout-1"></div> -->
                         <div align="center">
-                            <img src="images/sultanpur-gam.png" id="finalimg" class="finalimg" alt="સુલતાનપુર ગામ પરીવાર- Make Your Post">
+                            <img src="images/sabhaya_parivar_post.png" id="finalimg" class="finalimg" alt="સુલતાનપુર ગામ પરીવાર- Make Your Post">
                         </div>
                     </div>
                     <div class="col-md-6 u-align-center u-container-style u-grey-10 u-layout-cell u-size-30 u-layout-cell-2">
@@ -605,7 +596,6 @@ $(document).ready(function() {
             height: 360
         });
         var name = $("#name").val();
-        
         /* var amount = $("#amount").val(); */
         if(idd == "texa-tyre" || idd == "hanol-gam" || idd == "sultanpur-gam" || idd == "hanol-hpl"){
             $(".village-nm").hide();
@@ -623,7 +613,7 @@ $(document).ready(function() {
         
         
         if (idd == 0 || idd == 1 || idd == 2 || idd == "texa-tyre" || idd == "hanol-gam" || idd == "sultanpur-gam" || idd == "mangalnath-aahir" || idd == "hanol-hpl") {
-
+            
         } else {
             alert('Please try again URL is incorrect');
             return false;
@@ -631,7 +621,7 @@ $(document).ready(function() {
         canvas.toBlob(function(blob) {
             url = URL.createObjectURL(blob);
             var reader = new FileReader();
-            console.log(reader.readAsDataURL(blob));
+            reader.readAsDataURL(blob)
             reader.onloadend = function() {
                 var base64data = reader.result;
                 $.ajax({
@@ -642,12 +632,14 @@ $(document).ready(function() {
                         name: name,
                     },
                     success: function(returnData) {
-                        var result = returnData;
-                        if (result.status == 'success') {
+                    
+                        // var result = JSON.parse(returnData);
+                        
+                        if (returnData.status == 'success') {
                             $('#modal').modal('hide');
                             /* $('#uploaded_image').attr('src', result.profile); */
                             $('.success_msg').html("<font color='green'><b>" + name + ",</b> Thank you for your making post</font>");
-                            $('#finalimg').attr('src', result.final);
+                            $('#finalimg').attr('src', returnData.final);
                         }
                     }
                 });
