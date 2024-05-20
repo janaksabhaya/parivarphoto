@@ -1,36 +1,59 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
 
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    header("Access-Control-Allow-Methods: POST, OPTIONS");
-    exit(0);
-}
-if (isset($_POST['image'])) {
-	
-    $image_data = $_POST['image'];
-    $name = $_POST['name'];
-    $villageName = $_POST['villageName'];
-    $idd = $_POST['idd'];
+header('Content-Type: application/json');
 
-    $image_data = str_replace('data:image/png;base64,', '', $image_data);
-    $image_data = str_replace(' ', '+', $image_data);
-    $image_content = base64_decode($image_data);
-    $unique_id = uniqid();
-    $upload_filename = "upload/{$unique_id}.png";
-    $final_filename = "final/{$name}{$unique_id}.png";
-    file_put_contents($upload_filename, $image_content);
-    copy($upload_filename, $final_filename);
-    $response = [
-        'status' => 'success',
-        'profile' => $upload_filename,
-        'final' => $final_filename
-    ];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
+    // Get the uploaded files
+    $baseImagePath = 'images/sultanpur-gam.png';
+    $overlayImagePath = $_FILES['image']['tmp_name'];
+    
+    // Load the base image
+    $baseImage = imagecreatefromstring(file_get_contents($baseImagePath));
+    if ($baseImage === false) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Failed to load base image']);
+        exit;
+    }
 
-    echo json_encode($response);
+    // Load the overlay image
+    $overlayImage = imagecreatefromstring(file_get_contents($overlayImagePath));
+    if ($overlayImage === false) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Failed to load overlay image']);
+        exit;
+    }
+
+    // Get dimensions of the images
+    $baseWidth = imagesx($baseImage);
+    $baseHeight = imagesy($baseImage);
+    $overlayWidth = imagesx($overlayImage);
+    $overlayHeight = imagesy($overlayImage);
+
+    // // Define the position where you want to place the overlay image
+    // $dst_x = ($baseWidth - $overlayWidth) / 2; // Center horizontally
+    // $dst_y = ($baseHeight - $overlayHeight) / 2; // Center vertically
+
+    // Merge the overlay image onto the base image
+    imagecopy($baseImage, $overlayImage,10 ,50 , 10, 10, $overlayWidth, $overlayHeight);
+
+    // Save the resulting image to a temporary file
+    $outputPath = 'final/' . uniqid() . '.png';
+    if (!file_exists('final')) {
+        mkdir('final', 0777, true);
+    }
+    imagepng($baseImage, $outputPath);
+
+    // Free up memory
+    imagedestroy($baseImage);
+    imagedestroy($overlayImage);
+
+    // Return the resulting image as a URL
+    echo json_encode(['output_image' => $outputPath]);
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'No image data received']);
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid request']);
 }
 ?>
+
+
