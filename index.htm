@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+    <title>સુલતાનપુર ગામ પરીવાર- Make Your Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="name:title" content="">
+    <meta name="name:description" content="સુલતાનપુર ગામ પરીવાર- Make Your Post">
+    <meta property="og:image" content="https://freefestivepost.com/makepost/images/banner-sultanpur-gam.png" />
+
+    <meta charset="utf-8">
+    <meta name="keywords" content="Brand Fotos">
+    <!--     <meta name="description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta name="theme-color" content="#0e4ce3">
+    <meta property="og:url" content=""> -->
+
+    <link rel="icon" type="image/x-icon" href="images/favicone.png">
+    <link rel="stylesheet" href="css/nicepagea224.css?version=1ff958e7-35ff-4064-a17d-14ac55a5fe2a" media="screen">
+    <link id="u-theme-google-font" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+
+    <!-- croper -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" /> -->
+    <link href="css/cropper.css" rel="stylesheet" />
+    <!-- <script src="js/dropzone"></script> -->
+    <script src="js/cropper.js"></script>
+    <!-- croper end -->
+
+    <!-- <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="js/custom.js"></script>
+
+    <style class="u-style">
+        .u-section-2 {
+            min-height: 676px;
+        }
+
+        .u-section-2 .u-layout-wrap-1 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* .u-section-2 .u-image-1 {
+            min-height: 716px;
+            background-image: url("images/bg.png");
+            background-position: 50% 50%;
+        } */
+
+        .u-section-2 .u-container-layout-1 {
+            padding: 30px;
+        }
+
+        .u-section-2 .u-layout-cell-2 {
+            min-height: 676px;
+            background-image: none;
+        }
+
+        .u-section-2 .u-container-layout-2 {
+            padding: 10px;
+        }
+
+        .u-section-2 .u-text-1 {
+            font-weight: 700;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .u-section-2 .u-text-2 {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 17px 0 0;
+        }
+
+        .u-section-2 .u-shape-1 {
+            width: 350px;
+            height: 350px;
+            background-image: none;
+            margin: 32px auto 0;
+        }
+
+        .u-section-2 .u-text-3 {
+            font-weight: 700;
+            width: 281px;
+            margin: -212px auto 0;
+        }
+
+        .u-section-2 .u-btn-1 {
+            background-image: none;
+            border-style: none none solid;
+            margin: 20px auto 91px;
+            padding: 0;
+        }
+
+        .box1 {
+            height: 73px;
+            background-color: green;
+            width: 100%;
+            padding: 20px 0px 20px 0px;
+            border-radius: 15px;
+        }
+
+        .margin-left-right-20 {
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+        .upload-btn {
+            border: 1px solid;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .post {
+            margin: 20px 0px 20px 0px;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        p:not(.u-text-variant) {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* croper */
+        .image_area {
+            position: relative;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .preview {
+            overflow: hidden;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+
+        .modal-lg {
+            max-width: 1000px !important;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            height: 0;
+            transition: .5s ease;
+            width: 100%;
+        }
+
+        .image_area:hover .overlay {
+            height: 50%;
+            cursor: pointer;
+        }
+
+        .text {
+            color: #333;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* croper end */
+        @media (max-width: 1199px) {
+            .u-section-2 {
+                min-height: 642px;
+            }
+
+            .u-section-2 .u-image-1 {
+                min-height: 642px;
+            }
+
+            .u-section-2 .u-layout-cell-2 {
+                min-height: 590px;
+            }
+
+            .u-section-2 .u-text-1 {
+                width: auto;
+            }
+
+            .u-section-2 .u-shape-1 {
+                margin-top: 20px;
+            }
+
+            .u-section-2 .u-text-3 {
+                margin-top: -212px;
+            }
+
+            .u-section-2 .u-btn-1 {
+                margin-bottom: 90px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .u-section-2 {
+                min-height: 504px;
+            }
+
+            .u-section-2 .u-layout-wrap-1 {
+                position: relative;
+            }
+
+            .u-section-2 .u-image-1 {
+                min-height: 492px;
+            }
+
+            .u-section-2 .u-layout-cell-2 {
+                min-height: 667px;
+            }
+
+            .u-section-2 .u-shape-1 {
+                width: 300px;
+                height: 300px;
+                margin-top: 35px;
+            }
+
+            .u-section-2 .u-text-3 {
+                width: auto;
+                margin-top: -202px;
+                margin-left: 35px;
+                margin-right: 35px;
+            }
+
+            .u-section-2 .u-btn-1 {
+                margin-top: 17px;
+                margin-bottom: 83px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .u-section-2 {
+                min-height: 1254px;
+            }
+
+            .u-section-2 .u-image-1 {
+                min-height: 738px;
+            }
+
+            .u-section-2 .u-container-layout-1 {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .u-section-2 .u-layout-cell-2 {
+                min-height: 100px;
+            }
+
+            .u-section-2 .u-container-layout-2 {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .u-section-2 .u-shape-1 {
+                margin-top: 38px;
+            }
+
+            .u-section-2 .u-text-3 {
+                width: 246px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .u-section-2 {
+                min-height: 1231px;
+            }
+
+            .u-section-2 .u-layout-wrap-1 {
+                margin-bottom: -278px;
+            }
+
+            .u-section-2 .u-image-1 {
+                min-height: 465px;
+            }
+
+            .margin-left-right-20 {
+                margin-left: 0%;
+                margin-right: 0%;
+            }
+
+            #uploaded_image {
+                width: 50%;
+            }
+
+            h4 {
+                font-size: 19px !important;
+            }
+
+            p {
+                font-size: 16px;
+                padding: 0px !important;
+                margin-top: 7px !important;
+                margin-bottom: 5px !important;
+            }
+        }
+
+        @media (max-width: 413px) {
+            .u-section-2 {
+                min-height: 1070px;
+            }
+
+            h4 {
+                font-size: 18px !important;
+            }
+
+            p {
+                font-size: 15px;
+                padding: 0px !important;
+                margin-top: 7px !important;
+                margin-bottom: 5px !important;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .u-section-2 {
+                min-height: 1045px;
+            }
+
+            #uploaded_image {
+                width: 50%;
+            }
+
+            #whatsapp_btn {
+                margin-bottom: 0px;
+            }
+
+            h4 {
+                font-size: 17px !important;
+            }
+
+            p {
+                font-size: 14px;
+                padding: 0px !important;
+                margin-top: 7px !important;
+                margin-bottom: 5px !important;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .u-section-2 {
+                min-height: 1060px;
+            }
+
+            #uploaded_image {
+                width: 50%;
+            }
+
+            #whatsapp_btn {
+                margin-bottom: 10px;
+            }
+
+            h4 {
+                font-size: 16px !important;
+            }
+
+            p {
+                font-size: 14px;
+                padding: 0px !important;
+                margin-top: 7px !important;
+                margin-bottom: 5px !important;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .u-section-2 {
+                min-height: 907px;
+            }
+
+            #uploaded_image {
+                width: 50%;
+            }
+
+            h2 {
+                font-size: 20px !important;
+            }
+
+            h4 {
+                font-size: 14px !important;
+            }
+
+            p {
+                font-size: 12px;
+                padding: 0px !important;
+                margin-top: 7px !important;
+                margin-bottom: 5px !important;
+            }
+
+            #whatsapp_btn {
+                margin-bottom: 10px;
+            }
+        }
+
+        .col-md-3.col-sm-6.col-xs-6.box-margin {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body class="u-body">
+
+    <section class="u-clearfix u-section-2" id="carousel_13a2">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-row">
+                    <div class="u-align-center u-container-style u-image u-layout-cell u-size-30" data-image-width="1000" data-image-height="1500">
+                        <!-- <div class="u-container-layout u-container-layout-1"></div> -->
+                        <div align="center">
+                            <img src="images/sultanpur-gam.png" id="finalimg" class="finalimg" alt="સુલતાનપુર ગામ પરીવાર- Make Your Post">
+                        </div>
+                    </div>
+                    <div class="col-md-6 u-align-center u-container-style u-grey-10 u-layout-cell u-size-30 u-layout-cell-2">
+                        <div class="u-container-layout u-valign-middle u-container-layout-2  margin-left-right-20">
+                                                        <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <h4><b>અહીંયા થી તમારો ફોટો અપલોડ કરો </b></h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <div align="center">
+                                        <div class="row">
+                                            <div class="col-md-4">&nbsp;</div>
+                                            <div class="col-md-3">
+                                                <div class="image_area">
+                                                    <form method="post">
+                                                        <label for="upload_image">
+                                                            <img src="upload/user.png" id="uploaded_image" class="img-responsive" />
+                                                            <div class="overlay">
+                                                                <div class="text">Images</div>
+                                                            </div>
+                                                            <input type="file" name="image" class="image" id="upload_image" accept="image/*" style="display:none" />
+                                                        </label>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Crop Image Before Upload</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="img-container">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="col-md-8 col-sm-6 col-xs-6">
+                                                                            <img src="" id="sample_image" />
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                                                            <div class="preview"></div>
+                                                                            <!-- <div class="col-md-12">
+                                                                            </div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                        <div align="center">
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">Enter Name</label>
+                                                                                <input type="hidden" name="idd" id="idd" value="sultanpur-gam">
+                                                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+                                                                            </div>
+                                                                            <div class="form-group village-nm">
+                                                                                <label for="exampleInputEmail1">Enter Village Name</label>
+                                                                                <input type="text" class="form-control" name="vilageNm" id="vilageNm" placeholder="Enter your village name" required>
+                                                                            </div>
+                                                                            <!--  <div class="form-group myAmount" id="myAmount" style="display:block">
+                                                                                <label for="exampleInputEmail1">Amount</label>
+                                                                                <input type="text" class="form-control" name="amount" id="amount" placeholder="Enter your amount" required>
+                                                                            </div> -->
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" id="crop" class="btn btn-primary">Crop</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div align="center">
+                                        <!-- <p>Click on the user icon to upload a profile photo</p> -->
+                                        <p class="success_msg"></p>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="col-md-12">
+                                    <button class="btn btn-info" id="whatsapp_btn"><i class="fa fa-share-alt"></i> Share Your Post</button>
+                                    <button class="btn btn-success" id="saveimgbtn"><i class="fa fa-save"></i> Save Your Post &nbsp;</button>
+                                </div>
+                                    
+                            </div>
+                                                        <!-- <h2 class="u-text u-text-1">Insurance agents</h2>
+                            <h5 class="u-text u-text-body-color u-text-2">Protecting what's most important</h5>
+                            <div class="u-shape u-shape-circle u-white u-shape-1"></div>
+                            <p class="u-text u-text-body-color u-text-3">We’ve served generations. Protecting what’s most important. Let us do the same for you.</p> -->
+                            <br />
+                                <a href="https://bit.ly/3IlYTVB" target="_blank">
+                                    <p>શું તમે તમારા બિઝનેસ ને ઝડપથી વધારવા માંગો છો?</p>
+                                </a>
+                                <a href="https://bit.ly/3IlYTVB" target="_blank">
+                                    <img src="images/app-banner.png" />
+                                </a>
+                                <a href="https://bit.ly/3IlYTVB" target="_blank">
+                                    <p>તો આ એપ્લિકેશન ડાઉનલોડ કરો અને તમારા બિઝનેસ ને પ્રોમોટ કરો એ પણ એક દમ સરળ</p>
+                                </a>
+                                <a href="https://bit.ly/3IlYTVB" target="_blank">
+                                    <button class="btn btn-success" id="appinstall"><i class="fa fa-save"></i> Install Now &nbsp;</button>
+                                </a>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="col-md-12">
+        <br />
+    </div>
+    <section class="u-backlink u-clearfix u-grey-80">
+        <p class="u-text">
+            <span>શું તમે તમારા બિઝનેસ ને ઝડપથી વધારવા માંગો છો? </span> <br />
+            <span>તો આ એપ્લિકેશન ડાઉનલોડ કરો અને તમારા બિઝનેસ ને પ્રોમોટ કરો એ પણ એક દમ સરળ</span>
+            <br />
+            <a class="u-link" href="https://bit.ly/3IlYTVB" target="_blank">
+                <span>Brand Fotos</span>
+            </a>
+        </p>
+    </section>
+</body>
+
+</html>
+<script>
+$(document).ready(function() {
+    var image = document.getElementById('sample_image');
+    var cropper;
+    var idd = $("#idd").val();
+    if(idd == "texa-tyre" || idd == "hanol-gam" || idd == "hanol-hpl" ||idd == "sultanpur-gam"){
+        $(".village-nm").hide();
+    }
+    $('#upload_image').change(function(event) {
+        var files = event.target.files;
+        /*  var idd = $("#idd").val();
+        if (idd == 2) {
+            document.getElementById('myAmount').style.display = 'block'
+        } else {
+            document.getElementById('myAmount').style.display = 'none'
+        } */
+        var done = function(url) {
+            image.src = url;
+            $('#modal').modal('show');
+        };
+        if (files && files.length > 0) {
+            reader = new FileReader();
+            reader.onload = function(event) {
+                done(reader.result);
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    });
+    $('#modal').on('shown.bs.modal', function() {
+        cropper = new Cropper(image, {
+            /*  aspectRatio: 1,
+            viewMode: 0,
+            preview: '.preview',
+            responsive:true, */
+            dragMode: 'move',
+            aspectRatio: 1,
+            checkOrientation: true,
+            cropBoxMovable: true,
+            cropBoxResizable: true,
+            zoomOnTouch: true,
+            zoomOnWheel: true,
+            guides: true,
+            highlight: true,
+            responsive:true,
+            viewMode: 0,
+            preview: '.preview',
+            modal:false,
+            center:true,
+            autoCrop:true,
+            background:false,
+            autoCropArea: 0.8,
+            minContainerWidth: 200,
+            minContainerHeight: 100,
+
+
+        });
+    }).on('hidden.bs.modal', function() {
+        cropper.destroy();
+        cropper = null;
+    });
+    $('#crop').click(function() {
+        canvas = cropper.getCroppedCanvas({
+            width: 360,
+            height: 360
+        });
+        var name = $("#name").val();
+        
+        /* var amount = $("#amount").val(); */
+        if(idd == "texa-tyre" || idd == "hanol-gam" || idd == "sultanpur-gam" || idd == "hanol-hpl"){
+            $(".village-nm").hide();
+        }else{
+            var villageName = $("#vilageNm").val();
+            if ($.trim(villageName) === "") {
+                alert('Please enter your village name');
+                return false;
+            }
+        }
+        if ($.trim(name) === "") {
+            alert('Please enter your name');
+            return false;
+        }
+        
+        
+        if (idd == 0 || idd == 1 || idd == 2 || idd == "texa-tyre" || idd == "hanol-gam" || idd == "sultanpur-gam" || idd == "mangalnath-aahir" || idd == "hanol-hpl") {
+
+        } else {
+            alert('Please try again URL is incorrect');
+            return false;
+        }
+        canvas.toBlob(function(blob) {
+            url = URL.createObjectURL(blob);
+            var reader = new FileReader();
+            console.log(reader.readAsDataURL(blob));
+            reader.onloadend = function() {
+                var base64data = reader.result;
+                $.ajax({
+                    url: 'upload.php',
+                    method: 'POST',
+                    data: {
+                        image: base64data,
+                        name: name,
+                        villageName: villageName,
+                        idd: idd,
+                        /* amount: amount, */
+                    },
+                    success: function(returnData) {
+                        var result = jQuery.parseJSON(returnData);
+                        if (result.status == 'success') {
+                            $('#modal').modal('hide');
+                            /* $('#uploaded_image').attr('src', result.profile); */
+                            $('.success_msg').html("<font color='green'><b>" + name + ",</b> Thank you for your making post</font>");
+                            $('#finalimg').attr('src', result.final);
+                        }
+                    }
+                });
+            };
+        });
+    });
+});
+</script>
+<script type="text/javascript">
+function disableSelection(e) {
+    if (typeof e.onselectstart != "undefined") e.onselectstart = function() {
+        return false
+    };
+    else if (typeof e.style.MozUserSelect != "undefined") e.style.MozUserSelect = "none";
+    else e.onmousedown = function() {
+        return false
+    };
+    e.style.cursor = "default"
+}
+window.onload = function() {
+    disableSelection(document.body)
+}
+</script>
+<script type="text/javascript">
+function mousedwn(e) {
+    try {
+        if (event.button == 2 || event.button == 3) return false
+    } catch (e) {
+        if (e.which == 3) return false
+    }
+}
+document.oncontextmenu = function() {
+    return false
+};
+document.ondragstart = function() {
+    return false
+};
+document.onmousedown = mousedwn
+</script>
+<script type="text/javascript">
+window.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && (e.which == 65 || e.which == 66 || e.which == 67 || e.which == 73 || e.which == 80 || e.which == 83 || e.which == 85 || e.which == 86)) {
+        e.preventDefault()
+    }
+});
+document.keypress = function(e) {
+    if (e.ctrlKey && (e.which == 65 || e.which == 66 || e.which == 67 || e.which == 73 || e.which == 80 || e.which == 83 || e.which == 85 || e.which == 86)) {}
+    return false
+}
+</script>
+<script type="text/javascript">
+document.onkeydown = function(e) {
+    e = e || window.event;
+    if (e.keyCode == 123 || e.keyCode == 18) {
+        return false
+    }
+}
+</script>
